@@ -10,23 +10,15 @@ function Main(props) {
 
   useEffect(() => {
     api
-      .getUserInfo()
-      .then((data) => {
-        setUserName(data.name);
-        setUserDescription(data.about);
-        setUserAvatar(data.avatar);
+      .getAllData()
+      .then(([initialCards, userInfo]) => {
+        setUserName(userInfo.name);
+        setUserDescription(userInfo.about);
+        setUserAvatar(userInfo.avatar);
+        setCards(initialCards);
       })
       .catch((err) => console.log(err));
-  }, [userName, userDescription, userAvatar]);
-
-  useEffect(() => {
-    api
-      .getInitialCards()
-      .then((data) => {
-        setCards(data);
-      })
-      .catch((err) => console.log(err));
-  }, [cards]);
+  }, []);
 
   return (
     <main>

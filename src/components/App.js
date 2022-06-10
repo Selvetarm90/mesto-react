@@ -18,17 +18,22 @@ function App() {
     setSelectedCard(null);
   };
 
+  const handlePopupAvatarOpen = () => setOpenPopupAvatar(true);
+  const handlePopupProfileOpen = () => setOpenPopupProfile(true);
+  const handlePopupAddPlaceOpen = () => setOpenPopupAddPlace(true);
+
   const handleCardClick = (card) => {
     setSelectedCard(card);
   };
+
   return (
     <div className="page">
       <Header />
 
       <Main
-        onEditAvatar={() => setOpenPopupAvatar(true)}
-        onEditProfile={() => setOpenPopupProfile(true)}
-        onAddPlace={() => setOpenPopupAddPlace(true)}
+        onEditAvatar={handlePopupAvatarOpen}
+        onEditProfile={handlePopupProfileOpen}
+        onAddPlace={handlePopupAddPlaceOpen}
         onCardClick={handleCardClick}
       />
 
