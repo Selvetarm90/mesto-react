@@ -9,11 +9,17 @@ function App() {
   const [isEditAvatarPopupOpen, setOpenPopupAvatar] = useState(false);
   const [isAddPlacePopupOpen, setOpenPopupAddPlace] = useState(false);
   const [isEditProfilePopupOpen, setOpenPopupProfile] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   const closeAllPopups = () => {
     setOpenPopupAvatar(false);
     setOpenPopupAddPlace(false);
     setOpenPopupProfile(false);
+    setSelectedCard(null);
+  };
+
+  const handleCardClick = (card) => {
+    setSelectedCard(card);
   };
   return (
     <div className="page">
@@ -23,6 +29,7 @@ function App() {
         onEditAvatar={() => setOpenPopupAvatar(true)}
         onEditProfile={() => setOpenPopupProfile(true)}
         onAddPlace={() => setOpenPopupAddPlace(true)}
+        onCardClick={handleCardClick}
       />
 
       <Footer />
@@ -105,7 +112,7 @@ function App() {
 
       <PopupWithForm name="confirm-del" title="Вы уверены?" buttonText="Да" />
 
-      <ImagePopup />
+      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
     </div>
   );
 }
