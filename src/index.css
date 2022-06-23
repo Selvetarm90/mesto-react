@@ -21,6 +21,7 @@
 @import url(./blocks/item/__like-count/item__like-count.css);
 @import url(./blocks/item/__like/_active/item__like_ative.css);
 @import url(./blocks/item/__delete/item__delete.css);
+@import url(./blocks/item/__delete/_hidden/item__delete_hidden.css);
 
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copyright/footer__copyright.css);

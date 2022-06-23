@@ -1,10 +1,14 @@
 import React from "react";
 function PopupWithForm(props) {
+  const handleSubmit = (evt) => {
+    props.onSubmit(evt);
+    props.onClear?.();
+  };
   return (
     <div className={`popup popup_button_${props.name} ${props.isOpen ? "popup_opened" : ""}`}>
       <div className="popup__container">
         <h3 className="popup__heading">{props.title}</h3>
-        <form className="form-group" name={props.name} noValidate>
+        <form className="form-group" name={props.name} noValidate onSubmit={handleSubmit}>
           {props.children}
           <button name="saved-form" type="submit" className="form-group__button-save">
             {props.buttonText || "Сохранить"}
