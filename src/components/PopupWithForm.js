@@ -2,7 +2,6 @@ import React from "react";
 function PopupWithForm(props) {
   const handleSubmit = (evt) => {
     props.onSubmit(evt);
-    props.onClear?.();
   };
   return (
     <div className={`popup popup_button_${props.name} ${props.isOpen ? "popup_opened" : ""}`}>

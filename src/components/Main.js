@@ -12,7 +12,7 @@ function Main(props) {
           className="profile__avatar"
           onClick={props.onEditAvatar}
           style={{ backgroundImage: `url(${currentUser.avatar})` }}
-        ></div>
+        />
 
         <div className="info">
           <h1 className="info__name">{currentUser.name}</h1>
